@@ -30,3 +30,13 @@ class Sheet:
     def insert_paper_vertical(self, start_row, start_col, data):
         for idx, row in enumerate(range(start_row, start_row + len(data))):
             self.sheet.update_cell(row, start_col, data[idx])
+
+    def get_last_row_index(self):
+        str_list = list(filter(None, self.sheet.col_values(1)))
+        return len(str_list)
+
+
+if __name__ == "__main__":
+    sheet = Sheet("LLM Group Paper Assignment", "Armin")
+    rows = ["Hello", "I'm a paper", "My name is paper"]
+    sheet.insert_paper_vertical(1, 1, rows)
