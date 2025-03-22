@@ -1,4 +1,4 @@
-import gspread
+import gspread, time
 
 
 class Sheet:
@@ -26,10 +26,12 @@ class Sheet:
     def insert_paper_horizontal(self, start_row, start_col, data):
         for idx, col in enumerate(range(start_col, start_col + len(data))):
             self.sheet.update_cell(start_row, col, data[idx])
+        time.sleep(20)
 
     def insert_paper_vertical(self, start_row, start_col, data):
         for idx, row in enumerate(range(start_row, start_row + len(data))):
             self.sheet.update_cell(row, start_col, data[idx])
+        time.sleep(20)
 
     def get_last_row_index(self):
         str_list = list(filter(None, self.sheet.col_values(1)))
