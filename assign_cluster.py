@@ -6,7 +6,7 @@ def get_papers_name(path):
     papers = []
     for file in os.listdir(path):
         if file.endswith(".pdf"):
-            papers.append(file)
+            papers.append(file[:-4])
     return papers
 
 
@@ -40,7 +40,7 @@ def assign_paper_to_people(
 
 if __name__ == "__main__":
     sheet_name = "LLM Group Paper Assignment"
-    path = "/Users/armin/Desktop/HEC/Research/Data Analytics Group/LLM fairness"
+    path = "/Users/armin/Desktop/HEC/Research/Data Analytics Group/LLM fairness/Recommendations and Ethics"
     topic = path.split("/")[-1]
     people = ["Armin", "Stef", "Sajjad"]
     date = "Mar 22"
